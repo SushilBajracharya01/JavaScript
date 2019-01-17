@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shift Cipher</title>
+        <link rel="stylesheet" href="index.css">
+        
+    </head>
+    <body>
+        <div id="Main">
+            <div id="Title">Shift Cipher</div>
+            <br/>
+            <div id="enCripter">
+                
+                
+                <h1 id="enCripter">Encripter</h1>
+                
+                <div id = "plainText_div">
+                    <textarea rows="4" cols="50"
+                    spellcheck='false' id="plainText"></textarea>
+                </div>
+                
+                    <span class ='keyvalue'>Key Value</span>
+                    <input type = 'number' min= "0" id = "encriptionKey"/>
+                    <input type="button" value="Encript" id="encriptIt"/>
+                
+                <div id="cipherText_div">
+                    <span id="cipherText"></span>
+                </div>
+                
+                
+            </div>
+            
+            <br/><br/>
+            
+            <div id="deCripter">
+                <h1>Decripter</h1>
+                    <textarea rows="4" cols="50"
+                              spellcheck='false' id="encriptedText"></textarea>
+                <span class ='keyvalue'>Key Value</span>
+                    <input type = 'number' min= "0" id = "decriptionKey"/>
+                    <input type="button" value="Decript" id="decriptIt"/>
+                <div id = "decriptedText_div">
+                    <span id="decriptedText"></span>            
+                </div>
+            </div>
+        </div>
+        
+        
+        <script src="index.js"></script>
+    </body>
+</html>
