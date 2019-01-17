@@ -22,57 +22,16 @@ encript_btn.addEventListener('click', Encripter);
 decript_btn.addEventListener('click', Decripter);
 
 
-function Decripter (){
-    decript_span.innerHTML = '';
-    var decriptedText = '';
-    if(decriptKey_input.value){
-        var encriptedText = encripted_input.value.toUpperCase();
-        for(i=0;i<encriptedText.length;i++){
-            decriptedText = decriptedText + Decode(encriptedText[i]);
-        }
-//        decript_span.innerHTML = decriptedText;
-        
-        printLetterByLetter("decriptedText", decriptedText, 100);
-    }
-    else{
-//        decript_span.innerHTML = "Please Enter a key!";
-        printLetterByLetter("decriptedText", "Please Enter a key!", 100);
-
-    }
-}
-
-function Decode(Letter){
-    if(Letter === '+'){
-        return(' ');
-    }
-    else if(/[A-Z]/.test(Letter)){
-        var Num = parseInt(kVal[Letter].value);
-        var key = parseInt(decriptKey_input.value);
-        
-//        if(Num < key){
-//            Num = 26 + Num - key;
-//        }
-//        else{
-//            Num = (Num - key)%26   
-//        }
-        
-        Num = Num - key;
-        Num = (Num % 26 + 26)% 26;
-        return (Object.keys(kVal)[Num]);
-    }
-    else{
-        return ('*');
-    }
-}
-
-
 function Encripter (){
-    cipherText_span.innerHTML = '';
-    var cipherText = '';
+    cipherText_span.innerHTML = ''; // clears the previously encripted texts
 
-    console.log(cipherText_span.value);
     if(keyValue_input.value){
+        var cipherText = '';
         var plainText = plainText_input.value.toUpperCase();
+        /* 
+            Reads the plain text, one letter at a time,
+            encodes the letter and appends the encoded letter to cipherText variable.       
+        */
         for(i=0;i<plainText.length;i++){
             cipherText = cipherText + Cipher(plainText[i]) ;
         }
@@ -104,6 +63,45 @@ function Cipher(Letter){
 }
 
 
+function Decripter (){
+    decript_span.innerHTML = '';  // clears the previously decripted texts
+    if(decriptKey_input.value){
+        var decriptedText = '';
+        var encriptedText = encripted_input.value.toUpperCase();
+        
+        /* 
+            Reads the encripted text, one letter at a time,
+            decodes the letter and appends the decoded letter to decriptedText variable.       
+        */
+        for(i=0;i<encriptedText.length;i++){
+            decriptedText = decriptedText + Decode(encriptedText[i]);
+        }
+                            /* id , variable, speed */
+        printLetterByLetter("decriptedText", decriptedText, 100);
+    }
+    else{
+//        decript_span.innerHTML = "Please Enter a key!";
+        printLetterByLetter("decriptedText", "Please Enter a key!", 100);
+
+    }
+}
+
+function Decode(Letter){
+    if(Letter === '+'){
+        return(' ');
+    }
+    else if(/[A-Z]/.test(Letter)){
+        var Num = parseInt(kVal[Letter].value);
+        var key = parseInt(decriptKey_input.value);
+        
+        Num = Num - key;
+        Num = (Num % 26 + 26)% 26;
+        return (Object.keys(kVal)[Num]);
+    }
+    else{
+        return ('*');
+    }
+}
 
 function printLetterByLetter(destination, message, speed){
     var i = 0;
