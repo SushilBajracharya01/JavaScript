@@ -4,4 +4,4 @@ is replaced by a letter some fixed number of positions down the alphabet.
 
 ![ShiftCipher](Image/shiftCipher.jpg)
 
-<img src= "Image/shiftCipher.jpg" alt="ShiftCipher">
+<img src= "Image/shiftCipher2.jpg" alt="ShiftCipher">
